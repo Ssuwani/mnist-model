@@ -53,24 +53,24 @@ jobs:
       
       - name: run Experiment Pipeline
         run: |
-          - curl -u ${{ secrets.ACCESS_TOKEN }} \
-            -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
-            -d '{"ref": "master", 
-                "inputs": {
-                    "RELEASE_VERSION": ${{ env.RELEASE_VERSION }}
-                    }
-            }'
-          - echo curl -u ${{ secrets.ACCESS_TOKEN }} \
-            -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
-            -d '{"ref": "master", 
-                "inputs": {
-                    "RELEASE_VERSION": ${{ env.RELEASE_VERSION }}
-                    }
-            }'
+          curl -u ${{ secrets.ACCESS_TOKEN }} \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
+          -d '{"ref": "master", 
+              "inputs": {
+                  "RELEASE_VERSION": ${{ env.RELEASE_VERSION }}
+                  }
+          }'
+          echo curl -u ${{ secrets.ACCESS_TOKEN }} \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
+          -d '{"ref": "master", 
+              "inputs": {
+                  "RELEASE_VERSION": ${{ env.RELEASE_VERSION }}
+                  }
+          }'
       # - name: Setup Kustomize
       #   uses: imranismail/setup-kustomize@v1
 
