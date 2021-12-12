@@ -53,7 +53,7 @@ jobs:
       
       - name: run Experiment Pipeline
         run: |
-          curl "https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches" -s \
+          curl "https://api.github.com/repos/Ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches" -s \
               -H "Authorization: Token ${{ secrets.ACCESS_TOKEN }}" \
               -d '{
                   "ref":"master",
