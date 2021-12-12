@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import tensorflow as tf
 from tensorflow.keras import layers, Input, Model
 import argparse
