@@ -55,12 +55,8 @@ jobs:
         run: |
           curl "https://api.github.com/repos/Ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches" -s \
               -H "Authorization: Token ${{ secrets.ACCESS_TOKEN }}" \
-              -d '{
-                  "ref":"master",
-                  "inputs":{
-                      "RELEASE_VERSION": ${{ env.RELEASE_VERSION }}
-                  }
-              }'
+              -d '{"ref":"master", "inputs": {"RELEASE_VERSION": ${{ env.RELEASE_VERSION }}}}'
+              
           echo "https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches" -s \
               -H "Authorization: Token ${{ secrets.ACCESS_TOKEN }}" \
               -d '{
