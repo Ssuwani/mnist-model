@@ -50,15 +50,15 @@ jobs:
       #     file: dockerfile
       #     push: true
       #     tags: ghcr.io/${{ env.OWNER_LC}}/train-mnist:${{ env.RELEASE_VERSION}}
-      
+
       - name: run Experiment Pipeline
         run: |
           curl \
             -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${secrets.ACCESS_TOKEN}" \
             https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
             -d '{"ref":"master", "inputs": {"RELEASE_VERSION": ${env.RELEASE_VERSION}}}'
-          
+
       # - name: Setup Kustomize
       #   uses: imranismail/setup-kustomize@v1
 
