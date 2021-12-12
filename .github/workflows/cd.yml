@@ -55,7 +55,7 @@ jobs:
         run: |
           curl \
             -X POST \
-            -H "Authorization: token ${secrets.ACCESS_TOKEN}" \
+            -H "Authorization: token ${{secrets.ACCESS_TOKEN}}" \
             https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
             -d '{"ref":"master", "inputs": {"RELEASE_VERSION": ${env.RELEASE_VERSION}}}'
 
