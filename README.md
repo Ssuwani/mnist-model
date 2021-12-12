@@ -38,3 +38,4 @@ MNIST Train을 위한 파일입니다.
 | f"test-loss={test-loss}" | Katib Experiment의 Metrics Collection 방식 중 하나인 StdOut의 규칙에 따라 실험 결과에 `print` 함수를 사용합니다. |
 | f"test-acc={test-acc}"   | 위와 동일                                                    |
 
+t
