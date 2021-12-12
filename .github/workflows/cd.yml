@@ -8,6 +8,11 @@ on:
 jobs:
   image-push:
     runs-on: ubuntu-latest
+
+    env:
+      TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -53,12 +58,15 @@ jobs:
 
       - name: run Experiment Pipeline
         run: |
-          curl \
+          curl -u ":$TOKEN" \
             -X POST \
-            -H "Authorization: token ${{secrets.ACCESS_TOKEN}}" \
+            -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/ssuwani/experiment-pipeline/actions/workflows/cd.yml/dispatches \
-            -d '{"ref":"master", "inputs": {"version": ${{env.RELEASE_VERSION}}}}'
-
+            -d '{"ref": "master", 
+                "inputs": {
+                    "version": "${{env.RELEASE_VERSION}}"}
+            }'
+          
       # - name: Setup Kustomize
       #   uses: imranismail/setup-kustomize@v1
 
